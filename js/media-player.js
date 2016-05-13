@@ -23,8 +23,6 @@ var $CloseCapBtn = $('#close-captions');
 var $bufferBar = $('.bufferBar');
 var $volumeBar = $('#volume-bar');
 
-// Spans
-var $spansWithTime = $('span[data-time]');
 
 /* UNIVERSAL FUNCTIONS 
 -------------------------------------------------------*/
@@ -33,7 +31,7 @@ var $spansWithTime = $('span[data-time]');
 function changeButtonType(btn, value) { 
      btn.attr('title', value);
      btn.attr('class', value); 
-};
+}
 
 
 
@@ -86,7 +84,7 @@ function updateSeek(value) {
     // Update video time and progress bar position
     $('.timeBar').css('width', percentage+'%');
     mediaPlayer.currentTime = max * percentage / 100;
-};
+}
 
 // Function for displaying buffer state
 $mediaPlayer.on('progress', function bufferView() {
@@ -112,16 +110,16 @@ $mediaPlayer.on('timeupdate', function () {
 
 function updateTimeDisplay() {
     $nowTime.html(formatTime(mediaPlayer.currentTime) + ' / ' + formatTime(mediaPlayer.duration));
-};
+}
 
 function formatTime(seconds) {
     seconds = Math.round(seconds);
-    minutes = Math.floor(seconds / 60);
+    var minutes = Math.floor(seconds / 60);
     minutes = (minutes >= 10) ? minutes : '0' + minutes;
     seconds = Math.floor(seconds % 60);
     seconds = (seconds >= 10) ? seconds : '0' + seconds;
     return minutes + ':' + seconds;
-};
+}
 
 /* BUTTONS 
 --------------------------------------------------------*/
@@ -242,9 +240,7 @@ function timeToSeconds(v) {
 
 // initalizing timestamp array
 var timestamps = [],
-    last = 0,
     all = 0,
-    now = 0,
     old = 0,
     i = 0;
 
@@ -270,7 +266,7 @@ function highlightText(time){
           timestamps[i].elm.removeClass('highlight');
         }
     }
-};
+}
 
 // bind a handler to video to run highlight function when the video plays
 $('#media-video').on('timeupdate', function() {
@@ -304,7 +300,6 @@ $("span").click(function() {
         }
     }
 })();
-
 
 
 
