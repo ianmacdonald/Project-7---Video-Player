@@ -89,7 +89,7 @@ function updateSeek(value) {
 };
 
 // Function for displaying buffer state
-function bufferView() {
+$mediaPlayer.on('progress', function bufferView() {
     var currentBuffer = mediaPlayer.buffered.end(0);
     var maxduration = mediaPlayer.duration;
     var percentage = 100 * (currentBuffer / maxduration);
@@ -98,8 +98,9 @@ function bufferView() {
     if(currentBuffer < maxduration) {
       setTimeout(bufferView, 500);
     }
-  };  
-      setTimeout(bufferView, 500);
+});  
+//      setTimeout(bufferView, 500)
+//);
 
 /* TIME INDICATOR 
 --------------------------------------------------------*/
@@ -299,7 +300,7 @@ $("span").click(function() {
         }
     } else if ($(window).width() <= 800) {
         for (i=0; i < allCues.length; i++) {
-            allCues[i].line = 14;
+            allCues[i].line = 1;
         }
     }
 })();
