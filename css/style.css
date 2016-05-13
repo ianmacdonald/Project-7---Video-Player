@@ -1,0 +1,309 @@
+/* STYLESHEET */
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* BASE STYLES */
+
+body {
+    font-family: 'Open Sans', Georgia;
+    text-align: left;
+    background-color: aquamarine;
+}
+
+#transcript {
+    padding: 0 10px;
+    font-size: 1.1em;
+}
+
+#main-wrapper {
+    background-color: #fff;
+    max-width: 900px;
+    min-width: 320px;
+    margin: 0 auto;
+    position: relative;
+    width:100%;
+    left: 0;
+    top: 0;
+    padding: 0;
+}
+
+/* Hiding default controls in fullscreen mode */
+video::-webkit-media-controls {
+    display: none !important;
+}
+
+/* CAPTION STYLES */
+
+::cue {
+    font-size: 1.6em;
+}
+
+
+/* VIDEO ELEMENT */
+
+#media-video {
+    height: 100%;
+    width: 100%;
+}
+
+.highlight {
+    color: orangered;
+}
+
+/* MEDIA CONTAINER */
+
+#media-player {
+    margin: 0 auto;
+    position: relative;
+    width:100%;
+    left: 0;
+    top: 0;
+}
+
+/* MEDIA CONTROLS BAR */
+
+.controls-container {
+    position: absolute;
+    background: none;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 2147483647;
+    bottom: 5px;
+    left: 0;
+}
+
+#media-controls {
+    background-color: rgba(1,1,1,0.8);
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+/* CURRENT TIME */
+
+#current-time {
+    color: #fff;
+}
+
+/* TIMEBAR */
+
+.progressBar {
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.timeBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgb(240, 132, 17);
+    z-index: 100;
+}
+
+.bufferBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 50;
+}
+
+/* VOLUME SLIDER INPUT */
+
+/* SETTING INVIS SO I CAN STYLE */
+input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 80px; /* Specific width is required for Firefox. */
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+    cursor: pointer;
+    background: transparent; /* Hides the slider so custom styles can be added */
+    border-color: transparent;
+    color: transparent;
+}
+
+/* Styling the thumb */
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #000000;
+    height: 25px;
+    width: 10px;
+    border-radius: 5px;
+    background: #fff;
+    margin-top: -10px; /* You need to specify a margin in Chrome */
+}
+
+/* Styling the track */
+input[type=range]::-webkit-slider-runnable-track {
+    width: 80px;
+    height: 7px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #fff;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+/* BUTTONS */
+
+button,
+input {
+    border: none;
+    outline: none;
+    margin-right: 5px;
+}
+
+.play {
+    height: 26px;
+    width: 22px;
+    background-color: transparent;
+    background-image: url(../icons/play-icon.png);
+    background-repeat: no-repeat;
+}
+
+.pause {
+    border: none;
+    height: 26px;
+    width: 22px;
+    background-color: transparent;
+    background-image: url(../icons/pause-icon.png);
+    background-repeat: no-repeat;
+}
+
+.replay {
+    height: 26px;
+    width: 29px;
+    background-color: transparent;
+    background-image: url(../icons/replay-button.png);
+    background-repeat: no-repeat;
+    margin-left: auto;
+}
+
+.fullscreen {
+    border: none;
+    height: 26px;
+    width: 22px;
+    background-color: transparent;
+    background-image: url(../icons/fullscreen-icon.png);
+    background-repeat: no-repeat;
+}
+
+.close-caption {
+    border: none;
+    height: 26px;
+    width: 31px;
+    background-color: transparent;
+    background-image: url(../icons/closed-captioning.png);
+    background-repeat: no-repeat;
+}
+
+.volume {
+    height: 26px;
+    width: 22px;
+    background-color: transparent;
+    background-image: url(../icons/volume-on-icon.png);
+    background-repeat: no-repeat;
+}
+
+.volume-bar-toggle {
+    display: none;
+}
+
+.subtitles-menu {
+    display:none;
+    position:absolute;
+    bottom:14.8%;
+    right:20px;
+    background:#666;
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    width:100px;
+    padding:10px;
+}
+
+.subtitles-menu li {
+    padding:0;
+    text-align:center;
+}
+
+.subtitles-menu li button {
+    border:none;
+    background:#000;
+    color:#fff;
+    cursor:pointer;
+    width:90%;
+    padding:2px 5px;
+    border-radius:2px;
+}
+
+@media screen and (min-width: 600px) { 
+/* ...tablet styles here... */
+
+    ::cue {
+        font-size: .97em;
+    }
+    
+}
+@media screen and (min-width: 800px) { 
+/* ...desktop styles here... */
+
+    ::cue {
+        font-size: .95em;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

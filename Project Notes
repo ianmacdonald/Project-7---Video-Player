@@ -1,0 +1,17 @@
+Project 7 tasks:
+
+1. Embed video
+2. Add captions below the video (as shown in mocks)
+3. style the page as shown in mocks (responsive design - start small first)
+4. Implement play, pause, volume button (with volume slider), fullscreen button
+5. Playback progress control 
+    -click on progress bar to jump to that part of video
+    -should fill in as video progresses
+    -as video plays time should be displayed
+6. As playback time changes, highlight transcript to match words spoken
+
+Extra:
+1. Embed .vtt file as closed captioning track and add CC button w/ on/off toggle
+2. Rewind 15 second button
+3. Playback controls include buffering progress
+4. when user clicks a sentence in the transcript, video jumps to that time

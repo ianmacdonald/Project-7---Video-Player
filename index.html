@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<html lang='en'> 
+    <head> 
+        <meta charset='utf-8' /> 
+        <title>HTML5 Media Player</title>
+        <link href='css/normalize.css' rel='stylesheet' /> 
+        <link href='css/style.css' rel='stylesheet' />
+    </head> 
+<body>
+    <div id="main-wrapper">
+        <div id='media-player'> 
+            <video id='media-video'> 
+                <source src='video/video.mp4' type='video/mp4'> 
+                <source src='video/video.ogg' type='video/ogg'>
+                <track id="tracks" label="English" kind="subtitles" srclang="en" src="video/captions.vtt" default>
+            </video>
+            <div class="controls-container">
+                <div class="progressBar">
+                    <div class="timeBar"></div>
+                    <div class="bufferBar"></div>
+                </div>
+                <div id='media-controls' data-state='hidden'>
+                    <button id='play-pause-button' class='play' title='Play'></button>
+                    <span id='current-time'>00:00 / 01:00</span>
+                    <button id='replay-button' class='replay' title='Replay'></button>
+                    <button id='close-captions' class='close-caption' title='Close Captions' data-state='subtitles'></button>
+                    <button type="button" id="volume" class="volume" title="Volume"></button>
+                    <input type="range" id="volume-bar" class="volume-bar-toggle" min="0" max="1" step="0.1" value="1">
+                    <button id='fullscreen-button' class='fullscreen' title='Fullscreen'></button>
+                </div>
+            </div>
+        </div>
+        <div id="transcript">
+            <p>
+                <span data-time = "00:00" data-end="00:03">Now that we've looked at the architecture of the internet, let's see how you might</span>
+                <span data-time = "00:04" data-end="00:06">connect your personal devices to the internet inside your house.</span>
+            </p>
+            <p>
+                <span data-time = "00:07" data-end="00:10">Well there are many ways to connect to the internet, and</span>
+                <span data-time = "00:11" data-end="00:12">most often people connect wirelessly.</span>
+            </p>
+                <span data-time = "00:13" data-end="00:16">Let's look at an example of how you can connect to the internet.</span>
+                <span data-time = "00:17" data-end="00:21">If you live in a city or a town, you probably have a coaxial cable for</span>
+                <span data-time = "00:22" data-end="00:25">cable Internet, or a phone line if you have DSL, running to the outside of</span>
+                <span data-time = "00:26" data-end="00:31">your house, that connects you to the Internet Service Provider, or ISP.</span>
+            <p>
+                <span data-time = "00:32" data-end="00:33">If you live far out in the country, you'll more likely have</span>
+                <span data-time = "00:34" data-end="00:38">a dish outside your house, connecting you wirelessly to your closest ISP, or</span>
+                <span data-time = "00:39" data-end="00:41">you might also use the telephone system.</span>
+            </p>
+                <span data-time = "00:42" data-end="00:45">Whether a wire comes straight from the ISP hookup outside your house, or</span>
+                <span data-time = "00:46" data-end="00:48">it travels over radio waves from your roof,</span>
+                <span data-time = "00:49" data-end="00:52">the first stop a wire will make once inside your house, is at your modem.</span>
+            <p>
+                <span data-time = "00:53" data-end="00:56">A modem is what connects the internet to your network at home.</span>
+                <span data-time = "00:57" data-end="01:00">A few common residential modems are DSL or</span>
+            </p>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src='js/media-player.js'></script>
+</body> 
+</html>
