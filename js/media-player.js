@@ -100,7 +100,7 @@ window.onload = function () {
             $bufferBar.css('width', percentage+'%');
         }
     });
-}
+};
 
 /* TIME INDICATOR 
 --------------------------------------------------------*/
