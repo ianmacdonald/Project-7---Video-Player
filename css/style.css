@@ -79,21 +79,14 @@ video::-webkit-media-controls {
 
 #media-controls {
     background-color: rgba(1,1,1,0.8);
-    display: flex;
     align-items: center;
     padding: 5px 10px;
+    display: flex;
 }
 
-#media-player:fullscreen .controls-container {
-    
-}
-
+/* Styling the controls container when in fullscreen */
 #media-player:-webkit-full-screen .controls-container {
     margin-bottom: -40px;
-}
-
-#media-player:-webkit-full-screen #transcript {
-    display: none;
 }
 
 #media-player:-moz-full-screen .controls-container {
@@ -136,7 +129,7 @@ video::-webkit-media-controls {
     left: 0;
     width: 0;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(240, 132, 17, 0.3);
     z-index: 50;
 }
 
@@ -173,7 +166,27 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 /* Styling the track */
-input[type=range]::-webkit-slider-runnable-track {
+#volume-bar::-webkit-slider-runnable-track { /* Chrome/Safari */
+    width: 80px;
+    height: 7px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #fff;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+#volume-bar::-ms-track {    /* IE */
+    width: 80px;
+    height: 7px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #fff;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+#volume-bar::-moz-range-track {    /* Firefox */
     width: 80px;
     height: 7px;
     cursor: pointer;
@@ -190,6 +203,15 @@ input {
     border: none;
     outline: none;
     margin-right: 5px;
+}
+
+/* Added float for older browsers that do not support flexbox */
+.replay,
+.fullscreen,
+.close-caption,
+.volume,
+#volume-bar {
+    float: right;
 }
 
 .play {
@@ -210,6 +232,7 @@ input {
 }
 
 .replay {
+    border: none;
     height: 26px;
     width: 29px;
     background-color: transparent;
