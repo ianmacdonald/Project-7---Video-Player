@@ -87,18 +87,20 @@ function updateSeek(value) {
 }
 
 // Function for displaying buffer state
-$mediaPlayer.on('progress', function bufferView() {
-    var currentBuffer = mediaPlayer.buffered.end(0);
-    var maxduration = mediaPlayer.duration;
-    var percentage = 100 * (currentBuffer / maxduration);
-    $bufferBar.css('width', percentage+'%');
-    
-    if(currentBuffer < maxduration) {
-      setTimeout(bufferView, 500);
-    }
-});  
-//      setTimeout(bufferView, 500)
-//);
+
+window.onload = function () {
+
+    $mediaPlayer.on('progress', function () {
+        var bufferEnd = mediaPlayer.buffered.end(mediaPlayer.buffered.length - 1);
+        var duration = mediaPlayer.duration;
+        
+
+        if(bufferEnd > 0) {
+            var percentage = 100 * (bufferEnd / duration);
+            $bufferBar.css('width', percentage+'%');
+        }
+    });
+}
 
 /* TIME INDICATOR 
 --------------------------------------------------------*/
@@ -299,7 +301,7 @@ $("span").click(function() {
     highlightText($mediaPlayer[0].currentTime);
 });
 
-
+// function to set line position of CC track based on window width
 (function() {
     var track = document.getElementById('tracks').track;
     var allCues = track.cues;
