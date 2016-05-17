@@ -17,10 +17,12 @@ body {
 #transcript {
     padding: 0 10px 10px;
     font-size: 1.1em;
+    background-color: #fff;
+    display: block;
+    overflow: hidden;
 }
 
 #main-wrapper {
-    background-color: #fff;
     width: 100%;
     margin: 0 auto;
     position: relative;
@@ -47,6 +49,7 @@ video::-webkit-media-controls {
 #media-video {
     height: 100%;
     width: 100%;
+    display: block;
 }
 
 .highlight {
@@ -71,8 +74,7 @@ video::-webkit-media-controls {
     width: 100%;
     margin: 0 auto;
     z-index: 2147483647;
-    bottom: 5px;
-    left: 0;
+    bottom: 0;
 }
 
 #media-controls {
@@ -80,6 +82,27 @@ video::-webkit-media-controls {
     display: flex;
     align-items: center;
     padding: 5px 10px;
+}
+
+#media-player:fullscreen .controls-container {
+    
+}
+
+#media-player:-webkit-full-screen .controls-container {
+    margin-bottom: -40px;
+}
+
+#media-player:-webkit-full-screen #transcript {
+    display: none;
+}
+
+#media-player:-moz-full-screen .controls-container {
+    margin-bottom: 10px;
+}
+
+#media-player:-ms-fullscreen .controls-container {
+    padding-top: 5px;
+    padding-bottom: 20px;
 }
 
 /* CURRENT TIME */
@@ -122,7 +145,6 @@ video::-webkit-media-controls {
 /* SETTING INVIS SO I CAN STYLE */
 input[type=range] {
     -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-    width: 80px; /* Specific width is required for Firefox. */
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -130,19 +152,16 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 input[type=range]:focus {
-    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+    outline: none;
 }
 
 input[type=range]::-ms-track {
     cursor: pointer;
-    background: transparent; /* Hides the slider so custom styles can be added */
-    border-color: transparent;
-    color: transparent;
+    background: transparent;
 }
 
 /* Styling the thumb */
 
-/* Special styling for WebKit/Blink */
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: 1px solid #000000;
@@ -261,7 +280,6 @@ input {
 /* ...tablet styles here... */
     
     #main-wrapper {
-        background-color: #fff;
         max-width: 700px;
         margin: 0 auto;
         position: relative;

@@ -151,32 +151,44 @@ $mediaPlayer.on('click', function () {
 });
 
 // Fullscreen
-var isFullscreen = false;
-$fullScreenBtn.on('click', function () {
-    if (!isFullscreen) {
-        if (mediaPlayer.requestFullscreen) {
-            mediaPlayer.requestFullscreen();
-        } else if (mediaPlayer.mozRequestFullScreen) {
-            mediaPlayer.mozRequestFullScreen(); // FF
-        } else if (mediaPlayer.webkitRequestFullscreen) {
-            mediaPlayer.webkitRequestFullscreen(); // Chrome and Safari
-        }
-        isFullscreen = true;
+/* Toggle Full Screen Button */
+$fullScreenBtn.click(function() {
+    toggleFullScreen();
+  });
+  
+  function toggleFullScreen() {
+   var videoDiv = document.getElementById('media-player');
+    if (!document.fullscreenElement &&
+        !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {
+      if (videoDiv.requestFullscreen) {
+        videoDiv.requestFullscreen();
+      } else if (videoDiv.msRequestFullscreen) {
+        videoDiv.msRequestFullscreen();
+      } else if (videoDiv.mozRequestFullScreen) {
+        videoDiv.mozRequestFullScreen();
+      } else if (videoDiv.webkitRequestFullscreen) {
+        videoDiv.webkitRequestFullscreen();
+      }
     } else {
-        if(mediaPlayer.exitFullScreen) {
-            mediaPlayer.exitFullScreen();
-        } 
-        else if(mediaPlayer.mozCancelFullScreen) {
-            mediaPlayer.mozCancelFullScreen();
-        } 
-        else if(mediaPlayer.webkitExitFullScreen) {
-            mediaPlayer.webkitExitFullScreen();
-        }
-        isFullscreen=false;
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      }
     }
+  }
+
+
+// Volume Bar
+$volumeBar.on('input', function() {
+    mediaPlayer.volume = document.getElementById('volume-bar').value;
 });
 
-// Volume
+// Added due to IE not working with 'input'
 $volumeBar.on('change', function() {
     mediaPlayer.volume = document.getElementById('volume-bar').value;
 });
@@ -184,6 +196,7 @@ $volumeBar.on('change', function() {
 $volumeBtn.on('click', function() {
     $volumeBar.toggleClass('volume-bar-toggle');
 });
+
 
 // Replay
 $replayBtn.on('click', function () {
@@ -300,7 +313,6 @@ $("span").click(function() {
         }
     }
 })();
-
 
 
 
