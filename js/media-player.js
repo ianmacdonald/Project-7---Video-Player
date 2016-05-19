@@ -189,6 +189,11 @@ $fullScreenBtn.click(function() {
 // Volume Bar and Back
 $volumeBar.on('input', function() {
     mediaPlayer.volume = document.getElementById('volume-bar').value;
+    if (mediaPlayer.volume === 0) {
+        $volumeBtn.addClass('volume-off');
+    } else if (mediaPlayer.volume > 0) {
+        $volumeBtn.removeClass('volume-off');
+    }
 });
 
 // Added due to IE not working with 'input'
