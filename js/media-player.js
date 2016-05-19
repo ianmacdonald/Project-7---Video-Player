@@ -221,9 +221,7 @@ $volumeBtn.on('click', function() {
 $('#volume, #volume-bar, #volume-bar-back').hover(function() {
     $volumeBar.removeClass('hidden');
     $volumeBarBack.removeClass('hidden');
-});
-
-$('#volume, #volume-bar, #volume-bar-back').mouseleave(function() {
+}, function() {
     $volumeBar.addClass('hidden');
     $volumeBarBack.addClass('hidden');
 });
