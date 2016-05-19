@@ -73,7 +73,7 @@ video::-webkit-media-controls {
     background: none;
     width: 100%;
     margin: 0 auto;
-    z-index: 2147483647;
+    z-index: 200;
     bottom: 0;
 }
 
@@ -92,9 +92,10 @@ video::-webkit-media-controls {
     bottom: 40px;
     width: 30px;
     height: 110px;
+    z-index: 500;
 }
 
-.volume-bar-toggle {
+.hidden {
     display: none;
 }
 
@@ -147,75 +148,101 @@ video::-webkit-media-controls {
     z-index: 50;
 }
 
-/* VOLUME SLIDER INPUT */
+/* VOLUME TRACK STYLE */
 
-/* SETTING INVIS SO I CAN STYLE */
-input[type=range] {
-    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-}
-
-input[type=range]::-webkit-slider-thumb {
+#volume-bar {
     -webkit-appearance: none;
+    -ms-transform: rotate(270deg); /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    background: none;
+    transform: rotate(270deg);
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    right: 15px;
+    bottom: 42px;
+    z-index: 600;
+    margin: 0;
+    padding: 0;
 }
 
-input[type=range]:focus {
+#volume-bar:focus {
     outline: none;
 }
 
-input[type=range]::-ms-track {
+/* Bar */
+#volume-bar::-webkit-slider-runnable-track {
+    width: 100px;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border: 0.2px solid #010101;
+    z-index: 600;
+}
+
+/* Slider */
+#volume-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 10px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    margin-top: -7px;
+}
+
+#volume-bar:focus::-webkit-slider-runnable-track {
+    background: #367ebd;
+}
+
+/* FIREFOX */
+/* Bar */
+#volume-bar::-moz-range-track {
+    width: 100px;
+    height: 8.4px;
+    cursor: pointer;
+    background: #3071a9;
+    z-index: 600;
+}
+
+/* Slider */
+#volume-bar::-moz-range-thumb {
+    height: 20px;
+    width: 10px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+/* IE */
+
+/* Bar */
+#volume-bar::-ms-track {
+    width: 100px;
+    height: 8.4px;
     cursor: pointer;
     background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+    z-index: 600;
 }
 
-/* Styling the thumb */
+#volume-bar::-ms-fill-upper {
+    background: #000;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
 
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    border: 1px solid #000000;
-    height: 25px;
+/* Slider */
+#volume-bar::-ms-thumb {
+    height: 20px;
     width: 10px;
-    border-radius: 5px;
-    background: #fff;
-    margin-top: -10px; /* You need to specify a margin in Chrome */
-}
-
-/* Styling the track */
-#volume-bar {
-    position: absolute;
-    transform: rotate(-90deg);
-    right: 10px;
-    bottom: 90px;
-    width: 100px;
-}
-
-#volume-bar::-webkit-slider-runnable-track { /* Chrome/Safari */
-    width: 20px;
-    height: 7px;
+    border-radius: 3px;
+    background: #ffffff;
     cursor: pointer;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    background: #fff;
-    border-radius: 1.3px;
-    border: 0.2px solid #010101;
-}
-
-#volume-bar::-ms-track {    /* IE */
-    width: 20px;
-    height: 7px;
-    cursor: pointer;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    background: #fff;
-    border-radius: 1.3px;
-    border: 0.2px solid #010101;
-}
-
-#volume-bar::-moz-range-track {    /* Firefox */
-    width: 20px;
-    height: 7px;
-    cursor: pointer;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    background: #fff;
-    border-radius: 1.3px;
-    border: 0.2px solid #010101;
 }
 
 /* BUTTONS */

@@ -208,21 +208,15 @@ $volumeBtn.on('click', function() {
 });
 
 // Controlling visible state on hover
-$volumeBtn.hover(function() {
-    $volumeBar.toggleClass('volume-bar-toggle');
-    $volumeBarBack.toggleClass('volume-bar-toggle');
+$('#volume, #volume-bar, #volume-bar-back').hover(function() {
+    $volumeBar.removeClass('hidden');
+    $volumeBarBack.removeClass('hidden');
 });
 
-$volumeBarBack.hover(function() {
-    $volumeBar.toggleClass('volume-bar-toggle');
-    $volumeBarBack.toggleClass('volume-bar-toggle');
+$('#volume, #volume-bar, #volume-bar-back').mouseleave(function() {
+    $volumeBar.addClass('hidden');
+    $volumeBarBack.addClass('hidden');
 });
-
-$volumeBar.hover(function() {
-    $volumeBar.toggleClass('volume-bar-toggle');
-    $volumeBarBack.toggleClass('volume-bar-toggle');
-});
-
 
 // Replay
 $replayBtn.on('click', function () {
