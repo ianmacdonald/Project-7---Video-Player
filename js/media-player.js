@@ -22,6 +22,7 @@ var $CloseCapBtn = $('#close-captions');
 // Sliders
 var $bufferBar = $('.bufferBar');
 var $volumeBar = $('#volume-bar');
+var $volumeBarBack = $('#volume-bar-back');
 
 
 /* UNIVERSAL FUNCTIONS 
@@ -185,7 +186,7 @@ $fullScreenBtn.click(function() {
   }
 
 
-// Volume Bar
+// Volume Bar and Back
 $volumeBar.on('input', function() {
     mediaPlayer.volume = document.getElementById('volume-bar').value;
 });
@@ -196,7 +197,30 @@ $volumeBar.on('change', function() {
 });
 
 $volumeBtn.on('click', function() {
+    $volumeBtn.toggleClass('volume-off');
+    if (mediaPlayer.volume > 0) {
+        mediaPlayer.volume = 0;
+        $volumeBar.val(0);
+    } else if (mediaPlayer.volume === 0) {
+        mediaPlayer.volume = .5;
+        $volumeBar.val(.5);
+    }
+});
+
+// Controlling visible state on hover
+$volumeBtn.hover(function() {
     $volumeBar.toggleClass('volume-bar-toggle');
+    $volumeBarBack.toggleClass('volume-bar-toggle');
+});
+
+$volumeBarBack.hover(function() {
+    $volumeBar.toggleClass('volume-bar-toggle');
+    $volumeBarBack.toggleClass('volume-bar-toggle');
+});
+
+$volumeBar.hover(function() {
+    $volumeBar.toggleClass('volume-bar-toggle');
+    $volumeBarBack.toggleClass('volume-bar-toggle');
 });
 
 

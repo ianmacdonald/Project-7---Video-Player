@@ -82,6 +82,20 @@ video::-webkit-media-controls {
     align-items: center;
     padding: 5px 10px;
     display: flex;
+    height: 40px;
+}
+
+#volume-bar-back {
+    position: absolute;
+    background-color: rgba(1,1,1,0.8);
+    right: 50px;
+    bottom: 40px;
+    width: 30px;
+    height: 110px;
+}
+
+.volume-bar-toggle {
+    display: none;
 }
 
 /* Styling the controls container when in fullscreen */
@@ -167,7 +181,11 @@ input[type=range]::-webkit-slider-thumb {
 
 /* Styling the track */
 #volume-bar {
-    width: 45px;
+    position: absolute;
+    transform: rotate(-90deg);
+    right: 10px;
+    bottom: 90px;
+    width: 100px;
 }
 
 #volume-bar::-webkit-slider-runnable-track { /* Chrome/Safari */
@@ -219,60 +237,73 @@ input {
 }
 
 .play {
-    height: 26px;
-    width: 22px;
+    height: 40px;
+    width: 30px;
     background-color: transparent;
     background-image: url(../icons/play-icon.png);
     background-repeat: no-repeat;
+    background-position: center;
 }
 
 .pause {
     border: none;
-    height: 26px;
-    width: 22px;
+    height: 40px;
+    width: 30px;
     background-color: transparent;
     background-image: url(../icons/pause-icon.png);
     background-repeat: no-repeat;
+    background-position: center;
 }
 
 .replay {
     border: none;
-    height: 26px;
-    width: 29px;
+    height: 40px;
+    width: 30px;
     background-color: transparent;
     background-image: url(../icons/replay-button.png);
     background-repeat: no-repeat;
+    background-position: center;
     margin-left: auto;
 }
 
 .fullscreen {
     border: none;
-    height: 26px;
-    width: 22px;
+    height: 40px;
+    width: 30px;
     background-color: transparent;
     background-image: url(../icons/fullscreen-icon.png);
     background-repeat: no-repeat;
+    background-position: center;
 }
 
 .close-caption {
     border: none;
-    height: 26px;
-    width: 31px;
+    height: 40px;
+    width: 30px;
     background-color: transparent;
     background-image: url(../icons/closed-captioning.png);
     background-repeat: no-repeat;
+    background-position: center;
 }
 
 .volume {
-    height: 26px;
-    width: 22px;
+    height: 40px;
+    width: 30px;
     background-color: transparent;
     background-image: url(../icons/volume-on-icon.png);
     background-repeat: no-repeat;
+    background-position: center;
+    z-index: 500;
 }
 
-.volume-bar-toggle {
-    display: none;
+.volume-off {
+    height: 40px;
+    width: 30px;
+    background-color: transparent;
+    background-image: url(../icons/volume-off-icon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 500;
 }
 
 .subtitles-menu {
@@ -290,7 +321,7 @@ input {
 
 .subtitles-menu li {
     padding:0;
-    text-align:center;
+    text-align: center;
 }
 
 .subtitles-menu li button {
@@ -318,10 +349,6 @@ input {
     
     ::cue {
         font-size: .97em;
-    }
-    
-    #volume-bar {
-        width: 100px;
     }
     
 }
