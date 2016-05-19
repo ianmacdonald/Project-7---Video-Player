@@ -270,7 +270,6 @@ input {
 }
 
 .pause {
-    border: none;
     height: 40px;
     width: 30px;
     background-color: transparent;
@@ -280,7 +279,6 @@ input {
 }
 
 .replay {
-    border: none;
     height: 40px;
     width: 30px;
     background-color: transparent;
@@ -291,7 +289,6 @@ input {
 }
 
 .fullscreen {
-    border: none;
     height: 40px;
     width: 30px;
     background-color: transparent;
@@ -301,7 +298,6 @@ input {
 }
 
 .close-caption {
-    border: none;
     height: 40px;
     width: 30px;
     background-color: transparent;
@@ -317,7 +313,6 @@ input {
     background-image: url(../icons/volume-on-icon.png);
     background-repeat: no-repeat;
     background-position: center;
-    z-index: 500;
 }
 
 .volume-off {
