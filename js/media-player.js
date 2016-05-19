@@ -199,6 +199,11 @@ $volumeBar.on('input', function() {
 // Added due to IE not working with 'input'
 $volumeBar.on('change', function() {
     mediaPlayer.volume = document.getElementById('volume-bar').value;
+    if (mediaPlayer.volume === 0) {
+        $volumeBtn.addClass('volume-off');
+    } else if (mediaPlayer.volume > 0) {
+        $volumeBtn.removeClass('volume-off');
+    }
 });
 
 $volumeBtn.on('click', function() {
