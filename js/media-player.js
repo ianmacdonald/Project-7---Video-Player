@@ -1,5 +1,7 @@
 // MEDIA PLAYER //
 
+//testing PR stuff
+
 // Video
 var mediaPlayer = document.getElementById('media-video'); //or
 var mediaPlayer = $('#media-video').get(0);
